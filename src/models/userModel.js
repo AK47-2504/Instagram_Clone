@@ -4,16 +4,16 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: [true, "Username Already Exist"],
-    required: [true, "Username is Required"],
+    required: true,
   },
   email: {
     type: String,
     unique: [true, "Email Already Exist"],
-    required: [true, "Email is Required"],
+    required: true,
   },
   password: {
     type: String,
-    unique: [true, "Password is Required"],
+    required: [true, "Password is Required"],
   },
   bio: {
     type: String,
@@ -24,5 +24,5 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const userMOdel = mongoose.model("Users", userSchema);
-module.exports = userMOdel;
+const userModel = mongoose.model("users", userSchema);
+module.exports = userModel;
