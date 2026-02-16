@@ -15,5 +15,12 @@ postRouter.post(
   postControllers.createPostController,
 );
 
+postRouter.post(
+  "/",
+  upload.single("image"),
+  postControllers.getPostsController,
+);
+
+postRouter.get("/details/:postid", postControllers.getPostDetailsController);
+
 module.exports = postRouter;
-    

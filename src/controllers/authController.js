@@ -37,7 +37,7 @@ async function registerController(req, res) {
     { expiresIn: "1H" },
   );
 
-  res.cookie("register_token", token, {
+  res.cookie("token", token, {
     httpOnly: true,
   });
   return res.status(201).json({
@@ -53,7 +53,6 @@ async function registerController(req, res) {
 
 async function loginController(req, res) {
   try {
-
     const { email, password } = req.body;
 
     const user = await userModel.findOne({ email });
@@ -68,13 +67,11 @@ async function loginController(req, res) {
       return res.status(401).json({ message: "Invalid Credentials" });
     }
 
-    const token = jwt.sign(
-      { id: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
-    );
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
-    res.cookie("login_token", token, {
+    res.cookie("token", token, {
       httpOnly: true,
       sameSite: "lax",
       secure: false,
@@ -83,7 +80,6 @@ async function loginController(req, res) {
     return res.status(200).json({
       message: "Login Successful",
     });
-
   } catch (err) {
     console.error("LOGIN ERROR:", err);
     return res.status(500).json({
@@ -91,6 +87,5 @@ async function loginController(req, res) {
     });
   }
 }
-
 
 module.exports = { registerController, loginController };
