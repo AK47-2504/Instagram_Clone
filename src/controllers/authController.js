@@ -40,6 +40,7 @@ async function registerController(req, res) {
   res.cookie("token", token, {
     httpOnly: true,
   });
+
   return res.status(201).json({
     message: "User Register Successully",
     user: {
@@ -58,7 +59,7 @@ async function loginController(req, res) {
     const user = await userModel.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ message: "User Not Found" });
+      return res.status(404).json({ message: "User Not Found - Please Register" });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);

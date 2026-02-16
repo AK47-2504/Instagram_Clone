@@ -43,7 +43,7 @@ async function createPostController(req, res) {
   });
 }
 
-async function getPostsController(params) {
+async function getPostsController(req, res) {
   const token = req.cookies.token;
   let decoded;
   try {
