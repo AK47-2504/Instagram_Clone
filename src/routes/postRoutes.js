@@ -1,23 +1,20 @@
 const express = require("express");
 const postRouter = express.Router();
-const postControllers = require("../controllers/postController");
+
+const {
+  getPostDetailsController,
+  getPostsController,
+  createPostController,
+} = require("../controllers/postController");
+
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
+const identifyUser = require("../middlewares/authMiddleware");
 
-/* /api/posts/ -- Protected Routes Only Particular User can access 
-    req.body = caption, image_url
-*/
-postRouter.post(
-  "/",
-  upload.single("image"),
-  postControllers.createPostController,
-);
+postRouter.post("/", identifyUser, upload.single("image"), createPostController);
 
-// /api/posts/ -- Protected Routes Only Particular User can access - Getting all Posts Created by User
-postRouter.get("/", postControllers.getPostsController);
+postRouter.get("/", identifyUser, getPostsController);
 
-// /api/posts/details/:postid -- Protected Routes Only Particular User can access - Getting Post Details of Particular Post of particular User
-
-postRouter.get("/details/:postid", postControllers.getPostDetailsController);
+postRouter.get("/details/:postid", identifyUser, getPostDetailsController);
 
 module.exports = postRouter;

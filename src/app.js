@@ -1,7 +1,5 @@
 const cookieParser = require("cookie-parser");
 const express = require("express");
-const authRouter = require("../src/routes/authRoutes");
-const postRouer = require("../src/routes/postRoutes");
 
 const app = express();
 
@@ -13,6 +11,8 @@ app.get("/ping", (req, res) => {
   return res.status(200).json({ message: "pong" });
 });
 
+const authRouter = require("../src/routes/authRoutes");
+const postRouer = require("../src/routes/postRoutes");
 
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouer);
