@@ -13,8 +13,10 @@ app.get("/ping", (req, res) => {
 
 const authRouter = require("../src/routes/authRoutes");
 const postRouer = require("../src/routes/postRoutes");
+const userRouter = require("../src/routes/userRoutes");
 
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouer);
+app.use("/api/users/", userRouter);
 
 module.exports = app;

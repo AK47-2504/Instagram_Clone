@@ -5,16 +5,24 @@ const {
   getPostDetailsController,
   getPostsController,
   createPostController,
+  likePostController,
 } = require("../controllers/postController");
 
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 const identifyUser = require("../middlewares/authMiddleware");
 
-postRouter.post("/", identifyUser, upload.single("image"), createPostController);
+postRouter.post(
+  "/",
+  identifyUser,
+  upload.single("image"),
+  createPostController,
+);
 
 postRouter.get("/", identifyUser, getPostsController);
 
 postRouter.get("/details/:postid", identifyUser, getPostDetailsController);
+
+postRouter.post("/like/:postid", identifyUser, likePostController);
 
 module.exports = postRouter;
