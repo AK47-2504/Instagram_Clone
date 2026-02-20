@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/form.scss";
-import axios from "axios";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,20 +9,8 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    axios
-      .post("http://localhost:3000/api/auth/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        console.log("User Login Successfully", res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    
 
-    setEmail("");
-    setPassword("");
   }
 
   return (
