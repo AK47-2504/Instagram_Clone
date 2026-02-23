@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import "../styles/form.scss";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    
-
   }
 
   return (
@@ -48,3 +44,6 @@ const Login = () => {
 };
 
 export default Login;
+
+// Next Time use React Hook Form
+// react-hook-form

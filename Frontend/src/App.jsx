@@ -1,5 +1,5 @@
 import AppRoutes from "./AppRoutes";
-import "../src/style.scss";
+import "../src/features/shared/style.scss";
 
 const App = () => {
   return <AppRoutes />;
