@@ -1,8 +1,13 @@
 import AppRoutes from "./AppRoutes";
 import "../src/features/shared/style.scss";
+import { AuthProvider } from "./features/auth/authContext";
 
 const App = () => {
-  return <AppRoutes />;
+  return (
+    <AuthProvider>
+      <AppRoutes />{" "}
+    </AuthProvider>
+  );
 };
 
 export default App;

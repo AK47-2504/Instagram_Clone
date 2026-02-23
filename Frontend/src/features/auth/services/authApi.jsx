@@ -19,6 +19,7 @@ export async function Register(username, email, password) {
       },
     );
     console.log("User Registered Successfully", response.data);
+    return response.data;
   } catch (error) {
     console.log("Error registering user:", error);
   }
@@ -37,6 +38,7 @@ export async function Login(email, password) {
       },
     );
     console.log("User Login Successfully", response.data);
+    return response.data;
   } catch (error) {
     console.log("Error logging in user:", error);
   }
@@ -50,4 +52,3 @@ export async function getCurrentUser() {
     console.log("Error fetching current user:", error);
   }
 }
-
