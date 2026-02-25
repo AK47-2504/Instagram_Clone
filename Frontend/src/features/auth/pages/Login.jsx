@@ -1,13 +1,12 @@
 import "../styles/form.scss";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
-
 import { useNavigate, Link } from "react-router";
 
 const Login = () => {
-  const { user, loading, handleLogin } = useAuth();
+  const { loading, handleLogin } = useAuth();
 
-  const [email, setemail] = useState("");
+  const [emailf, setEmailf] = useState("");
   const [password, setpassword] = useState("");
 
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await handleLogin(email, password);
+    await handleLogin(emailf, password);
 
     navigate("/");
   };
@@ -35,7 +34,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <input
             onInput={(e) => {
-              setemail(e.target.value);
+              setEmailf(e.target.value);
             }}
             type="text"
             name="email"
