@@ -56,7 +56,7 @@ async function registerController(req, res) {
 async function loginController(req, res) {
   try {
     const { email, password } = req.body;
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findOne({ email }).select("+password");
     if (!user) {
       return res
         .status(404)

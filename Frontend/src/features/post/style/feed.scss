@@ -1,0 +1,85 @@
+.feed-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgb(19, 19, 19);
+  color: white;
+
+  .feed {
+    max-width: 400px;
+    width: 100%;
+    .posts {
+      padding-block: 10px;
+      width: 100%; 
+    }
+
+    .post {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.7rem;
+      gap: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.089);
+      padding-inline: 0.5rem;
+      padding-block: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .user {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      object-fit: cover;
+
+      .image-wrapper {
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid rgb(9, 255, 0);
+      }
+
+      img {
+        width: 2rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+      }
+    }
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .bottom {
+      p{
+        color: rgb(182, 182, 182);
+      }
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .like {
+        background-color: red;
+      }
+      svg {
+        width: 1.5rem;
+        aspect-ratio: 1/1;
+        color: rgb(255, 255, 255);
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
+
+// Add Image Wrapper when Story is set true to User
+// for these story need to creat a edge collection

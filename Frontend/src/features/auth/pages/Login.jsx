@@ -16,7 +16,7 @@ const Login = () => {
 
     await handleLogin(emailf, password);
 
-    navigate("/");
+    navigate("/feed");
   };
 
   if (loading) {

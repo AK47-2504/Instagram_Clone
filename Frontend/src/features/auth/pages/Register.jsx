@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
 
     await handleRegister(username, emailf, password);
-    navigate("/");
+    navigate("/feed");
   }
 
   if (loading) {

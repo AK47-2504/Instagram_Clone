@@ -44,11 +44,11 @@ export async function Login(email, password) {
   }
 }
 
-export async function getCurrentUser() {
-  try {
-    const response = await api.get("/get-me");
-    return response.data;
-  } catch (error) {
-    console.log("Error fetching current user:", error);
-  }
-}
+// export async function getCurrentUser() {
+//   try {
+//     const response = await api.get("/get-me");
+//     return response.data;
+//   } catch (error) {
+//     console.log("Error fetching current user:", error);
+//   }
+// }

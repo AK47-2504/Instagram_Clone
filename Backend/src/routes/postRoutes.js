@@ -6,6 +6,7 @@ const {
   getPostsController,
   createPostController,
   likePostController,
+  getFeedController,
 } = require("../controllers/postController");
 
 const multer = require("multer");
@@ -25,6 +26,6 @@ postRouter.get("/details/:postid", identifyUser, getPostDetailsController);
 
 postRouter.post("/like/:postid", identifyUser, likePostController);
 
-
+postRouter.get("/feed", identifyUser, getFeedController);
 
 module.exports = postRouter;
