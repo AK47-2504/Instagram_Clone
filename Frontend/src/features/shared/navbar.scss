@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+
+  button {
+    background-color: crimson;
+    color: white;
+    padding-inline: 0.5rem;
+    padding-block: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+  }
+}

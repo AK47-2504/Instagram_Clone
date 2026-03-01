@@ -1,7 +1,8 @@
 .feed-page {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   background: rgb(19, 19, 19);
   color: white;
 
@@ -10,7 +11,7 @@
     width: 100%;
     .posts {
       padding-block: 10px;
-      width: 100%; 
+      width: 100%;
     }
 
     .post {
@@ -51,7 +52,7 @@
     }
 
     .bottom {
-      p{
+      p {
         color: rgb(182, 182, 182);
       }
     }
@@ -59,7 +60,7 @@
     .icons {
       display: flex;
       justify-content: space-between;
-      
+
       .left {
         display: flex;
         gap: 0.5rem;
