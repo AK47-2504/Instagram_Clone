@@ -5,7 +5,7 @@ import { PostContext } from "../postContext";
 export const usePost = () => {
   const context = useContext(PostContext);
 
-  const { loading, setLoading, post, setPost, feed, setFeed } = context;
+  const { loading, setLoading, post, feed, setFeed } = context;
 
   const handleGetFeed = async () => {
     setLoading(true);

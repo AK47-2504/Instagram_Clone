@@ -4,7 +4,11 @@ const jwt = require("jsonwebtoken");
 
 async function registerController(req, res) {
   const { username, email, password, bio, profile_img } = req.body;
-
+  if (!username || !email || !password) {
+    return res.status(400).json({
+      message: "All fields are required",
+    });
+  }
   const userExist = await userModel.findOne({
     $or: [
       {
@@ -56,6 +60,11 @@ async function registerController(req, res) {
 async function loginController(req, res) {
   try {
     const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({
+          message: "Email and password are required",
+      });
+    }
     const user = await userModel.findOne({ email }).select("+password");
     if (!user) {
       return res
